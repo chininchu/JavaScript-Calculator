@@ -79,7 +79,19 @@ $(document).ready(function () {
 
         }
 
-        alert("Result: " + result);
+        // alert("Result: " + result)
+
+        // Display the result in the "result" div
+        $('#result').text("Result: " + result);
+
+        // Create a confetti effect
+
+        confetti({
+            particleCount: 100,
+            spread: 70
+
+
+        });
 
 
     }
