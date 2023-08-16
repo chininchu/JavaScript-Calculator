@@ -49,6 +49,20 @@ $(document).ready(function () {
 
     }
 
+    // Function to calculate the result based on the current input values
+
+    function calculateResults() {
+
+        // Retrieve the values from the input fields
+
+        let left = parseFloat($('#leftOperand').value());
+        let operator = $('#operator').value();
+        let right = parseFloat($('#rightOperand').val());
+        // Rest of the code for performing the calculation remains the same
+
+
+    }
+
 
 });
 
