@@ -41,9 +41,9 @@ $(document).ready(function () {
 
     function clearInputs() {
 
-        $('#leftOperand').value(' ');
-        $('#operator').value(' ');
-        $('#rightOperand').value(' ');
+        $('#leftOperand').val(' ');
+        $('#operator').val(' ');
+        $('#rightOperand').val(' ');
         currentInput = 'leftOperand';
 
 
@@ -55,13 +55,65 @@ $(document).ready(function () {
 
         // Retrieve the values from the input fields
 
-        let left = parseFloat($('#leftOperand').value());
-        let operator = $('#operator').value();
+        let left = parseFloat($('#leftOperand').val());
+        let operator = $('#operator').val();
         let right = parseFloat($('#rightOperand').val());
-        // Rest of the code for performing the calculation remains the same
+        let result;
+
+        switch (operator) {
+            case '+':
+                result = left + right;
+                break;
+
+            case '-':
+                result = left - right;
+                break;
+            case '*':
+                result = left * right;
+                break;
+
+            case '/':
+                result = left / right;
+                break;
+
+
+        }
+
+        alert("Result: " + result);
 
 
     }
+
+    // Attach a click handler to all button elements
+
+    $('button').click(function () {
+
+        // Retrieve the text content of the clicked button
+
+        let value = $(this).text();
+
+        // Determine the appropriate action based on the button's value
+
+
+        // If it's a number, call insertNumber
+
+        if (!isNaN(value)) insertNumber(value);
+
+        // If it's 'C', call clearInputs
+
+        else if (value === 'C') clearInputs();
+
+        // If it's '=', call calculateResult
+
+        else if (value === '=') calculateResults();
+
+        // Otherwise, call insertOperator (for arithmetic operators)
+
+
+        else insertOperator(value);
+
+
+    });
 
 
 });
